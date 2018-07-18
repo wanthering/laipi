@@ -1,0 +1,33 @@
+{
+  "name": "SG一键赖皮工具",
+  "version": "0.1",
+  "description": "windows:按Alt+S开启、关闭赖皮网站  \nmac:按Control+S开启、关闭赖皮网站",
+  "permissions": [
+    "tabs"
+  ],
+  "icons": {
+    "16": "sgamers.png",
+    "32": "sgamers.png",
+    "48": "sgamers.png",
+    "128": "sgamers.png"
+  },
+  "browser_action": {
+    "default_icon": "sgamers.png",
+    "default_popup": "popup.html"
+  },
+  "commands": {
+    "toggle-tags": {
+      "suggested_key": {
+        "default": "Alt+S",
+        "mac": "MacCtrl+S"
+      },
+      "description": "Toggle Tags"
+    }
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "manifest_version": 2
+}
