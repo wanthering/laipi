@@ -26,7 +26,7 @@ $('#save').on('click', function () {
   alert()
 })
 
-$('#main-page-inactive').on('click',function(){
+$('#change-content').delegate('#main-page-inactive','click',function(){
   let mainPageUrl = $(this).html()
   if(/^http:\/\/|^https:\/\//.test(mainPageUrl)){
     chrome.tabs.create({"url": mainPageUrl, "selected": true})
