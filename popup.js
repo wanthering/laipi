@@ -3,7 +3,7 @@ let mainPage = ''
 const isMac = /Macintosh/.test(navigator.userAgent)
 let $lapiKey = $('.lapi-key')
 
-isMac? $lapiKey.text('Alt+S'):$lapiKey.text('Ctrl+S')
+isMac? $lapiKey.text('Control+S'):$lapiKey.text('Alt+S')
 
 chrome.storage.local.get(['sites','mainPage'], function (res) {
   if (res.sites) {
