@@ -5,30 +5,36 @@
 </head>
 <body>
 <div class="container">
-  <h2 class="lapi-title">常用站点</h2>
+  <h2 class="lapi-title">常用赖皮站点域名</h2>
   <ul class="lapi-content">
-    <li><span class="site">sgamer.com</span>
-      <button class="button close-button">&times</button>
-    </li>
-    <li><span  class="site">douyu.com</span>
-      <button class="button close-button">&times</button>
-    </li>
-    <li><span  class="site">bilibili.com</span>
-      <button class="button close-button">&times</button>
-    </li>
-    <li><label><input type="text" id="add" class="add"></label>
-      <button class="button add-button ">+</button>
-    </li>
+    <!--<li><span class="site">sgamer.com</span>-->
+      <!--<button class="button close-button">&times</button>-->
+    <!--</li>-->
+    <!--<li><span  class="site">douyu.com</span>-->
+      <!--<button class="button close-button">&times</button>-->
+    <!--</li>-->
+    <!--<li><span  class="site">bilibili.com</span>-->
+      <!--<button class="button close-button">&times</button>-->
+    <!--</li>-->
+    <!--<li>
+    <!--</li>-->
   </ul>
-  <p></p>
-  <p></p>
-  <p></p>
-  <h2>常用主页</h2>
   <p>
-    <label><input type="text" class="main-page"></label>
+  <label><input type="text" id="add" class="add"></label>
+  <button class="button add-button ">+</button>
   </p>
-  <button class="submit" id="save">保存</button>
-  <button class="submit" id="cancel" >取消</button>
+  <p></p>
+  <p></p>
+  <p></p>
+  <h2>我的赖皮主页</h2>
+  <div id="change-content">
+  <span class="main-page-inactive" id="main-page-inactive"></span><button class="button change-button " id="change">✎</button>
+    <!--<label><textarea id="main-page" class="main-page"></textarea></label>-->
+  </div>
+
+  <p class="lapi-tip">按<span class="lapi-key">Alt+S</span>快速开启/关闭赖皮站点</p>
+  <!--<button class="submit" id="save">保存</button>-->
+  <!--<button class="submit" id="cancel" >取消</button>-->
 </div>
 <script src="zepto.min.js"></script>
 <script src="popup.js"></script>

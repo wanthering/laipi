@@ -3,7 +3,7 @@
   "version": "0.1",
   "description": "windows:按Alt+S开启、关闭赖皮网站  \nmac:按Control+S开启、关闭赖皮网站",
   "permissions": [
-    "tabs"
+    "tabs","storage"
   ],
   "icons": {
     "16": "sgamers.png",

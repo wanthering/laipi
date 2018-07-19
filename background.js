@@ -1,11 +1,27 @@
+const INIT_SITES_LIST = ['bilibili.com','douyu.com','sgamer.com','hupu.com']
+const INIT_MAIN_PAGE = 'http://bbs.sgamer.com/forum-44-1.html'
+
+chrome.runtime.onInstalled.addListener(function() {
+  loadInitSites();
+});
+
+function loadInitSites() {
+  chrome.storage.local.set({
+    sites: INIT_SITES_LIST,
+    mainPage:INIT_MAIN_PAGE
+  })
+}
+
+
+
 //初始化isOpen和tabCache状态
 let isOpen = false
 let tabCache = []
 
 //新标签打开的主页
-const mainPageUrl = 'http://bbs.sgamer.com/forum-44-1.html'
+// const mainPageUrl = 'http://bbs.sgamer.com/forum-44-1.html'
 //四个赖皮网站的正则匹配表达式
-const myPattern = 'sgamer\.com/|douyu\.com|hupu\.com|bilibili\.com'
+// const myPattern = 'sgamer\.com/|douyu\.com|hupu\.com|bilibili\.com'
 //当前页面的Url
 let currentPageUrl = ''
 
@@ -15,14 +31,24 @@ let currentPageUrl = ''
  * 情形二：isOpen为false，则重载页面
  */
 chrome.commands.onCommand.addListener(function (command) {
+
+
   if (command === 'toggle-tags') {
-    if (isOpen) {
-      //情形一：isOpen为true
-      removePages(myPattern)
-      //情形二：isOpen为false
-    } else {
-      reloadPages(myPattern, mainPageUrl)
-    }
+    chrome.storage.local.get(['sites','mainPage'],function(res){
+      let sites =  res.sites
+      let mainPage = res.mainPage
+      let myPattern = sites.map(item=>item.replace('.','\\.')).join('|')
+      console.log(myPattern)
+
+      if (isOpen) {
+        //情形一：isOpen为true
+        removePages(myPattern)
+        //情形二：isOpen为false
+      } else {
+        reloadPages(myPattern, mainPage)
+      }
+    })
+
   }
 })
 
@@ -149,6 +175,5 @@ function walkEveryTab(callback, lastCallback) {
     if(lastCallback) lastCallback()
   })
 }
-
 
 
