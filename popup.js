@@ -5,6 +5,7 @@ let $lapiKey = $('.lapi-key')
 
 isMac? $lapiKey.text('Control+S'):$lapiKey.text('Alt+S')
 
+// 从storage中取出site和mainPage字段，并设置在页面上。
 chrome.storage.local.get(['sites','mainPage'], function (res) {
   if (res.sites) {
     sites = res.sites
@@ -61,7 +62,6 @@ addEl.bind('keypress',function(event){
 
 
 function addEvent(){
-
   if(!validate(addEl.val())){
     addEl.addClass('add-wrong')
   }else{
